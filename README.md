@@ -4,14 +4,14 @@ Flix Movie App using TMDB API
 
 [Uploading Screen_recording_20240727_062656.webm…]()
 
-# Home Page FLix Movie 
+## Home Page FLix Movie 
 ![image](https://github.com/user-attachments/assets/f50afa9a-e235-4de2-bcc2-93f7b514c5d7)
 
 ![image](https://github.com/user-attachments/assets/d58468d8-f1ea-466d-bed5-ee2477782de3)
 
 ![image](https://github.com/user-attachments/assets/399504ae-7a61-4165-994b-5ca1dadedb4d)
 
-# Detail Movie 
+## Detail Movie 
 ![image](https://github.com/user-attachments/assets/f811cacf-a918-463d-a5da-c21ce85ca6d7)
 
 
