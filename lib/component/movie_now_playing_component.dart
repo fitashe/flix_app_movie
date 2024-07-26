@@ -1,4 +1,5 @@
 import 'package:flix_movie_app/provider/movie_now_playing_provider.dart';
+import 'package:flix_movie_app/screens/movie_detail_page.dart';
 import 'package:flix_movie_app/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -70,6 +71,16 @@ class _MovieNowPlayingComponentState extends State<MovieNowPlayingComponent> {
                         height: 200,
                         width: 120,
                         radius: 12,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return MovieDetailPage(id: movie.id);
+                              },
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(
                         width: 8,

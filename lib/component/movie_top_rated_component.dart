@@ -1,4 +1,5 @@
 import 'package:flix_movie_app/provider/movie_get_top_rated_provider.dart';
+import 'package:flix_movie_app/screens/movie_detail_page.dart';
 import 'package:flix_movie_app/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -49,6 +50,17 @@ class _MovieTopRatedComponentState extends State<MovieTopRatedComponent> {
                   height: 200,
                   width: 120,
                   radius: 12,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) {
+                          var movie = provider.movies[index];
+                          return MovieDetailPage(id: movie.id);
+                        },
+                      ),
+                    );
+                  },
                 );
               },
               separatorBuilder: (_, __) {
