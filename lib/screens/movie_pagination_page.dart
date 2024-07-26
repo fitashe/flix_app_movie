@@ -2,6 +2,7 @@ import 'package:flix_movie_app/models/movie_models.dart';
 import 'package:flix_movie_app/provider/movie_get_discover_provider.dart';
 import 'package:flix_movie_app/provider/movie_get_top_rated_provider.dart';
 import 'package:flix_movie_app/provider/movie_now_playing_provider.dart';
+import 'package:flix_movie_app/screens/movie_detail_page.dart';
 import 'package:flix_movie_app/widgets/item_movie_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -89,6 +90,14 @@ class _MoviePaginationPageState extends State<MoviePaginationPage> {
             widthBackdrop: double.infinity,
             heightPoster: 140,
             widthPoster: 100,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => MovieDetailPage(id: movie.id),
+                ),
+              );
+            },
           ),
         ),
         separatorBuilder: (context, index) => const SizedBox(
