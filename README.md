@@ -1,6 +1,9 @@
 # flix_movie_app
 
-A new Flutter project.
+Flix Movie App using TMDB API
+
+[Uploading Screen_recording_20240727_062656.webm…]()
+
 
 ## Getting Started
 
