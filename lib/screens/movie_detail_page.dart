@@ -43,7 +43,7 @@ class _WidgetAppBar extends SliverAppBar {
   @override
   List<Widget>? get actions => [
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: CircleAvatar(
             backgroundColor: Colors.white,
             foregroundColor: Colors.black,
@@ -57,7 +57,7 @@ class _WidgetAppBar extends SliverAppBar {
 
   @override
   Widget? get leading => Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: CircleAvatar(
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
@@ -100,6 +100,7 @@ class _WidgetSummary extends SliverToBoxAdapter {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 8),
@@ -110,6 +111,11 @@ class _WidgetSummary extends SliverToBoxAdapter {
 
   TableRow _tableContent({required String title, required String content}) =>
       TableRow(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+          ),
+        ),
         children: [
           Padding(
             padding: const EdgeInsets.all(8),
@@ -117,12 +123,18 @@ class _WidgetSummary extends SliverToBoxAdapter {
               title,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
+                color: Colors.white,
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8),
-            child: Text(content),
+            child: Text(
+              content,
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
         ],
       );
@@ -144,6 +156,7 @@ class _WidgetSummary extends SliverToBoxAdapter {
                       children: [
                         const Icon(
                           Icons.calendar_month_rounded,
+                          color: Colors.white,
                         ),
                         const SizedBox(
                           width: 6,
@@ -153,6 +166,7 @@ class _WidgetSummary extends SliverToBoxAdapter {
                           style: const TextStyle(
                             fontSize: 16,
                             fontStyle: FontStyle.italic,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -169,7 +183,12 @@ class _WidgetSummary extends SliverToBoxAdapter {
                   ),
                   _content(
                     title: 'Overview',
-                    body: Text(movie.overview),
+                    body: Text(
+                      movie.overview,
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                   _content(
                     title: 'Summary',

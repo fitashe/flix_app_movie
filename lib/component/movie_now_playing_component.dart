@@ -58,7 +58,7 @@ class _MovieNowPlayingComponentState extends State<MovieNowPlayingComponent> {
                       end: Alignment.bottomCenter,
                       colors: [
                         Colors.transparent,
-                        Colors.black26,
+                        Colors.white12,
                       ],
                     ),
                     borderRadius: BorderRadius.circular(12),
@@ -93,7 +93,7 @@ class _MovieNowPlayingComponentState extends State<MovieNowPlayingComponent> {
                             Text(
                               movie.title,
                               style: const TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -108,6 +108,7 @@ class _MovieNowPlayingComponentState extends State<MovieNowPlayingComponent> {
                                   '${movie.voteAverage} (${movie.voteCount})',
                                   style: const TextStyle(
                                     fontSize: 16,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ],
@@ -116,7 +117,7 @@ class _MovieNowPlayingComponentState extends State<MovieNowPlayingComponent> {
                               movie.overview,
                               maxLines: 3,
                               style: const TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontStyle: FontStyle.italic,
                                 fontWeight: FontWeight.w400,
                               ),

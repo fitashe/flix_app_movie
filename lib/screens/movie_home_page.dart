@@ -24,16 +24,18 @@ class MovieHomePage extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  'Flix App',
+                  'FlixApp',
                   style: TextStyle(
-                      color: Colors.black, fontFamily: 'Poppins', fontSize: 20),
+                      color: Color(0xFFFFD369),
+                      fontFamily: 'Roboto',
+                      fontSize: 20),
                 ),
               ],
             ),
             floating: true,
             snap: true,
             centerTitle: true,
-            backgroundColor: Colors.white,
+            backgroundColor: const Color(0xFF202040),
             foregroundColor: Colors.black,
           ),
           _WidgetTitle(
@@ -99,7 +101,7 @@ class _WidgetTitle extends SliverToBoxAdapter {
             Text(
               title,
               style: const TextStyle(
-                color: Colors.black,
+                color: Color(0xFFFFD369),
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
@@ -107,16 +109,16 @@ class _WidgetTitle extends SliverToBoxAdapter {
             OutlinedButton(
               onPressed: onPressed,
               style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.black,
+                foregroundColor: const Color(0xFFFF6363),
                 shape: const StadiumBorder(),
                 side: const BorderSide(
-                  color: Colors.black,
+                  color: Color(0xFFFFD369),
                 ),
               ),
               child: const Text(
                 'See All',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Color(0xFFFFD369),
                 ),
               ),
             ),

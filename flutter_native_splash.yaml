@@ -1,17 +1,15 @@
 flutter_native_splash:
-  color: "#ffffff"
-  image: assets/images/logo.png
+  color: "#202040"
+  image: assets/images/logo_small.png
   color_dark: "#121212"
-  image_dark: assets/images/logo.png
-  height: 200
-  width: 250
+  image_dark: assets/images/logo_small.png
+  android_gravity: center
 
   android_12:
-    image: assets/images/logo.png
-    icon_background_color: "#ffffff"
-    image_dark: assets/images/logo.png
+    image: assets/images/logo_small.png
+    icon_background_color: "#202040"
+    image_dark: assets/images/logo_small.png
     icon_background_color_dark: "#121212"
-    height: 200
-    width: 250
+    android_gravity: center
 
   web: false

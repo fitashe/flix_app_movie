@@ -38,9 +38,8 @@ class App extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
-          // scaffoldBackgroundColor:
-          //     const Color(0xFF1679AB), // Set background color to blue
-          // primaryColor: Color(0xFF1679AB),
+          scaffoldBackgroundColor: const Color(0xFF202040),
+          primaryColor: const Color(0xFF202040),
         ),
         home: const MovieHomePage(),
         debugShowCheckedModeBanner: false,

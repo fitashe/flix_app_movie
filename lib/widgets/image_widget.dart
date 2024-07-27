@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class ImageNetworkWidget extends StatelessWidget {
   const ImageNetworkWidget({
-    Key? key,
+    super.key,
     this.imageSrc,
     required this.height,
     required this.width,
