@@ -39,7 +39,7 @@ class _MovieDiscoverComponentState extends State<MovieDiscoverComponent> {
                 child: Text(
                   'Loading...',
                   style: TextStyle(
-                    color: Colors.black45,
+                    color: Colors.white,
                   ),
                 ),
               ),

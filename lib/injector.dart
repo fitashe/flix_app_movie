@@ -3,7 +3,9 @@ import 'package:flix_movie_app/app_constants.dart';
 import 'package:flix_movie_app/provider/movie_get_detail_provider.dart';
 import 'package:flix_movie_app/provider/movie_get_discover_provider.dart';
 import 'package:flix_movie_app/provider/movie_get_top_rated_provider.dart';
+import 'package:flix_movie_app/provider/movie_get_videos_provider.dart';
 import 'package:flix_movie_app/provider/movie_now_playing_provider.dart';
+import 'package:flix_movie_app/provider/movie_search_provider.dart';
 import 'package:flix_movie_app/repositories/movie_repositories.dart';
 import 'package:flix_movie_app/repositories/movie_resp_impl.dart';
 import 'package:get_it/get_it.dart';
@@ -23,6 +25,12 @@ void setup() {
   );
   getIt.registerFactory<MovieGetDetailProvider>(
     () => MovieGetDetailProvider(getIt()),
+  );
+  getIt.registerFactory<MovieGetVideosProvider>(
+    () => MovieGetVideosProvider(getIt()),
+  );
+  getIt.registerFactory<MovieSearchProvider>(
+    () => MovieSearchProvider(getIt()),
   );
 
   // Register Repository

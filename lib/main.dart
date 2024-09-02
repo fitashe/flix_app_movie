@@ -2,6 +2,7 @@ import 'package:flix_movie_app/injector.dart';
 import 'package:flix_movie_app/provider/movie_get_discover_provider.dart';
 import 'package:flix_movie_app/provider/movie_get_top_rated_provider.dart';
 import 'package:flix_movie_app/provider/movie_now_playing_provider.dart';
+import 'package:flix_movie_app/provider/movie_search_provider.dart';
 import 'package:flix_movie_app/screens/movie_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -31,6 +32,9 @@ class App extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => getIt<MovieGetNowPlayingProvider>(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => getIt<MovieSearchProvider>(),
         ),
       ],
       child: MaterialApp(

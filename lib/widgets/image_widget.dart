@@ -1,19 +1,26 @@
 import 'package:flix_movie_app/app_constants.dart';
 import 'package:flutter/material.dart';
 
+enum TypeSrcImage {
+  movieDb,
+  external,
+}
+
 class ImageNetworkWidget extends StatelessWidget {
   const ImageNetworkWidget({
     super.key,
     this.imageSrc,
-    required this.height,
-    required this.width,
+    this.height,
+    this.width,
     this.radius = 0.0,
     this.onTap,
+    this.type = TypeSrcImage.movieDb,
   });
 
   final String? imageSrc;
-  final double height;
-  final double width;
+  final TypeSrcImage type;
+  final double? height;
+  final double? width;
   final double radius;
   final void Function()? onTap;
 
@@ -24,7 +31,9 @@ class ImageNetworkWidget extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(radius),
           child: Image.network(
-            '${AppConstants.imgUrlw500}$imageSrc',
+            type == TypeSrcImage.movieDb
+                ? '${AppConstants.imgUrlw500}$imageSrc'
+                : imageSrc!,
             height: height,
             width: width,
             fit: BoxFit.cover,

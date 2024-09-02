@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flix_movie_app/models/movie_detail_models.dart';
 import 'package:flix_movie_app/models/movie_models.dart';
+import 'package:flix_movie_app/models/movie_video_models.dart';
 import 'package:flix_movie_app/repositories/movie_repositories.dart';
 
 class MovieRespImpl implements MovieRepositories {
@@ -96,6 +97,50 @@ class MovieRespImpl implements MovieRepositories {
         return Left(e.response!.data.toString());
       }
       return const Left('Another error get detail movies');
+    }
+  }
+
+  @override
+  Future<Either<String, MovieVideosModels>> getVideos({required int id}) async {
+    try {
+      final result = await _dio.get(
+        '/movie/$id/videos',
+      );
+
+      if (result.statusCode == 200 && result.data != null) {
+        final model = MovieVideosModels.fromJson(result.data);
+        return Right(model);
+      } else {
+        return const Left('Error get videos movies');
+      }
+    } on DioException catch (e) {
+      if (e.response != null) {
+        return Left(e.response!.data.toString());
+      }
+      return const Left('Another error get videos movies');
+    }
+  }
+
+  @override
+  Future<Either<String, MovieResponseModels>> search(
+      {required String query}) async {
+    try {
+      final result = await _dio.get(
+        '/search/movie',
+        queryParameters: {'query': query},
+      );
+
+      if (result.statusCode == 200 && result.data != null) {
+        final model = MovieResponseModels.fromJson(result.data);
+        return Right(model);
+      } else {
+        return const Left('Error search movies');
+      }
+    } on DioException catch (e) {
+      if (e.response != null) {
+        return Left(e.response!.data.toString());
+      }
+      return const Left('Another error search movies');
     }
   }
 }

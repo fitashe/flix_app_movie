@@ -34,7 +34,12 @@ class _MovieTopRatedComponentState extends State<MovieTopRatedComponent> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Center(
-                child: Text('Loading...'),
+                child: Text(
+                  'Loading...',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             );
           }

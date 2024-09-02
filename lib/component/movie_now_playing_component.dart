@@ -35,7 +35,12 @@ class _MovieNowPlayingComponentState extends State<MovieNowPlayingComponent> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Center(
-                child: Text('Loading...'),
+                child: Text(
+                  'Loading...',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             );
           }
@@ -48,85 +53,106 @@ class _MovieNowPlayingComponentState extends State<MovieNowPlayingComponent> {
               itemBuilder: (_, index) {
                 final movie = provider.movies[index];
 
-                return Container(
-                  padding: const EdgeInsets.all(8),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: 220,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        Colors.white12,
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ImageNetworkWidget(
-                        imageSrc: movie.posterPath,
-                        height: 200,
-                        width: 120,
-                        radius: 12,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) {
-                                return MovieDetailPage(id: movie.id);
-                              },
-                            ),
-                          );
-                        },
+                return Stack(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      height: 220,
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Colors.white12,
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              movie.title,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Row(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ImageNetworkWidget(
+                            imageSrc: movie.posterPath,
+                            height: 200,
+                            width: 120,
+                            radius: 12,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) {
+                                    return MovieDetailPage(id: movie.id);
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Flexible(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Icon(
-                                  Icons.star_rounded,
-                                  color: Colors.amber,
+                                Text(
+                                  movie.title,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star_rounded,
+                                      color: Colors.amber,
+                                    ),
+                                    Text(
+                                      '${movie.voteAverage} (${movie.voteCount})',
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 Text(
-                                  '${movie.voteAverage} (${movie.voteCount})',
+                                  movie.overview,
+                                  maxLines: 3,
                                   style: const TextStyle(
-                                    fontSize: 16,
                                     color: Colors.white,
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
                               ],
                             ),
-                            Text(
-                              movie.overview,
-                              maxLines: 3,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.w400,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned.fill(
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) {
+                                  return MovieDetailPage(id: movie.id);
+                                },
                               ),
-                            ),
-                          ],
+                            );
+                          },
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 );
               },
               separatorBuilder: (_, __) {

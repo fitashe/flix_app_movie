@@ -2,6 +2,7 @@ import 'package:flix_movie_app/component/movie_discover_component.dart';
 import 'package:flix_movie_app/component/movie_now_playing_component.dart';
 import 'package:flix_movie_app/component/movie_top_rated_component.dart';
 import 'package:flix_movie_app/screens/movie_pagination_page.dart';
+import 'package:flix_movie_app/screens/movie_search_page.dart';
 import 'package:flutter/material.dart';
 
 class MovieHomePage extends StatelessWidget {
@@ -32,6 +33,17 @@ class MovieHomePage extends StatelessWidget {
                 ),
               ],
             ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  showSearch(
+                    context: context,
+                    delegate: MovieSearchPage(),
+                  );
+                },
+                icon: const Icon(Icons.search, color: Color(0xFFFFD369)),
+              ),
+            ],
             floating: true,
             snap: true,
             centerTitle: true,
@@ -80,6 +92,11 @@ class MovieHomePage extends StatelessWidget {
             },
           ),
           const MovieNowPlayingComponent(),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
+            ),
+          ),
         ],
       ),
     );
